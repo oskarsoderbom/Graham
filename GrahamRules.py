@@ -13,7 +13,7 @@ CURRENT_RATIO_CEILING = 3
 #3 Consistent earnings - years of positive earnings
 POSITIVE_EARNINGS_YEARS_FLOOR = 10
 
-#4 Divident payment history 
+#4 Divident payment history
 
 DIVIDENT_PAYMENT_YEARS = 20
 
@@ -31,7 +31,7 @@ DIVIDENT_PAYMENT_YEARS = 20
 
 PE_CEILING = 15
 
-# Price to Asset Ratio
+# 7 Price to Asset Ratio
 
 PRICE_ASSET_CEILING = 11.5
 

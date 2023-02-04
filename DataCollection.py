@@ -6,7 +6,8 @@ listofomxcomps = ['ERIC-B.ST','SCA-B.ST','HM-B.ST','ATCO-A.ST','ATCO-B.ST','INVE
 'ALIV-SDB.ST','ELUX-B.ST','ALFA.ST','VOLV-B.ST','HEXA-B.ST','TEL2-B.ST','ABB.ST','AZN.ST',
 'EVO.ST','GETI-B.ST','SBB-B.ST','SHB-A.ST','TELIA.ST','KINV-B.ST','ASSA-B.ST']
 
-for com in listofomxcomps:
+onecomplist = ['ERIC-B.ST']
+for com in onecomplist:
 
     comp = yfinance.Ticker(com)
 
