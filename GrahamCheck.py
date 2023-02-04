@@ -1,5 +1,4 @@
-import yfinance
-
+import RuleChecking
 
 listofomxcomps = ['ERIC-B.ST','SCA-B.ST','HM-B.ST','ATCO-A.ST','ATCO-B.ST','INVE-B.ST',
 'SAND.ST','SWED-A.ST','NDA-SE.ST','SEB-A.ST','BOL.ST','SKF-B.ST','SINCH.ST','ESSITY-B.ST',
@@ -7,21 +6,10 @@ listofomxcomps = ['ERIC-B.ST','SCA-B.ST','HM-B.ST','ATCO-A.ST','ATCO-B.ST','INVE
 'EVO.ST','GETI-B.ST','SBB-B.ST','SHB-A.ST','TELIA.ST','KINV-B.ST','ASSA-B.ST']
 
 onecomplist = ['ERIC-B.ST']
-for com in onecomplist:
-
-    comp = yfinance.Ticker(com)
-
-    print('Historic Dividends')
-    print(comp)
-
-    print(comp.dividends)
-    
-    print('CashFlow')
-    print(comp)
-    print(comp.cash_flow)
-    print('Income Statement')
-    print(comp)
-    print(comp.income_stmt)
-    print('Balance Sheet')
-    print(comp)
-    print(comp.balance_sheet)
+for com in listofomxcomps:
+    print(com)
+    RuleChecking.check_current_ratio(com)
+    RuleChecking.check_price_earnings(com)
+    RuleChecking.check_price_to_asset(com)
+    RuleChecking.market_cap_check(com)
+    RuleChecking.div_years_check(com)
