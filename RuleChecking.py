@@ -2,8 +2,11 @@ import GrahamRules
 import pandas as pd 
 import yfinance
 
-def div_years_check(divident_data: pd.Series):
+def div_years_check(ticker: str):
     '''Checking rule nr 4 for years of divindends'''
+
+    tickdata = yfinance.Ticker(ticker)
+    divident_data = tickdata.dividends
     divident_df = pd.DataFrame(divident_data.index)
     divident_df['Years'] = divident_df['Date'].dt.year
     
@@ -11,8 +14,6 @@ def div_years_check(divident_data: pd.Series):
         print(f"dividends history ok, years = {len(divident_df['Years'].unique())}, last year = {divident_df['Years'].max()}")
     else:
         print('dividens history too short')
-
-
 
 def market_cap_check(ticker: str):
     ''' check nr 1
@@ -24,7 +25,7 @@ def market_cap_check(ticker: str):
     else:
         print('Too small')
 
-def check_PE(ticker: str):
+def check_price_earnings(ticker: str):
     '''Checking rule no 6 - using trailing PE'''
     tickdata = yfinance.Ticker(ticker)
     statistics = tickdata.stats()
@@ -35,7 +36,7 @@ def check_PE(ticker: str):
     else:
         print(f'PE is {pe} and above the PE Ceiling')
 
-def check_Price_to_Asset(ticker):
+def check_price_to_asset(ticker):
     ''' Checking rule no 7 but using price to book instead'''
     tickdata = yfinance.Ticker(ticker)
     statistics = tickdata.stats()
